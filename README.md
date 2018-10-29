@@ -1,2 +1,5 @@
 # koa2-mysql
-just a api
+
+cnpm i koa -S
+
+npm start
