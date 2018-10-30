@@ -1,11 +1,22 @@
-const Koa = require('koa'); //引入koa
- 
-const app = new Koa();        //new 一个koa事例
- 
-app.use(async(ctx)=>{         //中间件
-    ctx.body = 'hello world';
-})
- 
-app.listen(3000,() => {       //监听端口
-    console.log("success port on 3000");     //成功后打印这句话
-})
+const Koa = require('koa');
+
+const bodyParser = require('koa-bodyparser');
+
+const controller = require('./controller');
+
+const app = new Koa();
+
+// log request URL:
+app.use(async (ctx, next) => {
+    console.log(`Process ${ctx.request.method} ${ctx.request.url}...`);
+    await next();
+});
+
+// parse request body:
+app.use(bodyParser());
+
+// add controllers:
+app.use(controller());
+
+app.listen(3000);
+console.log('app started at port 3000...');

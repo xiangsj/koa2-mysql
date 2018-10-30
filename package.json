@@ -17,6 +17,8 @@
     "url": "https://github.com/xiangsj"
   },
   "dependencies": {
-    "koa": "^2.6.1"
+    "koa": "^2.6.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0"
   }
 }
